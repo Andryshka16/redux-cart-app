@@ -1,16 +1,17 @@
-import { CartIcon } from './icons';
-import { Cart } from './Cart/Cart';
+import { useSelector } from 'react-redux';
+import { Cart } from './Components/Cart';
+import Modal from './Components/Modal';
+import { Navigation } from './Components/Navigation';
 
 function App() {
+
+	const { show } = useSelector((store)=>store.modal)
+
 	return (
 		<>
-			<nav>
-				<div className='nav-center'>
-					<h3>React toolkit</h3>
-					<CartIcon />
-				</div>
-			</nav>
+			<Navigation />
 			<Cart />
+			{show && <Modal />}
 		</>
 	);
 }

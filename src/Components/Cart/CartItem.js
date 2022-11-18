@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { ChevronDown, ChevronUp } from "../icons"
-import { removeItem, changeAmount} from '../features/cart/cartSlice';
+import { ChevronDown, ChevronUp } from '../../icons';
+import { removeItem, changeAmount } from '../../features/cart/cartSlice';
 
 export function CartItem({ title, price, amount, img, id }) {
-
-	const dispatch = useDispatch()
+	
+	const dispatch = useDispatch();
 
 	return (
 		<article key={id} className={'cart-item'}>
