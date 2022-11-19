@@ -5,7 +5,7 @@ import { Navigation } from './Components/Navigation';
 
 function App() {
 
-	const { show } = useSelector((store)=>store.modal)
+	const { show } = useSelector((store) => store.modal)
 
 	return (
 		<>
