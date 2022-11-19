@@ -1,14 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CartItem } from './Cart/CartItem';
-import { clearCart, updateTotal } from '../features/cart/cartSlice';
+import { updateTotal } from '../features/cart/cartSlice';
 import { useEffect } from 'react';
 import { changeVisibility } from '../features/modal/modalSlice';
+import { getCartItems } from '../features/cart/reducers';
 
 export function Cart() {
-	const { cartItems, total } = useSelector((store) => store.cart);
+	const { cartItems, total, isLoading } = useSelector((store) => store.cart);
 	const dispatch = useDispatch();
 
-	useEffect(() => dispatch(updateTotal()), [cartItems]);
+	useEffect(
+		() => dispatch(getCartItems()), []
+	)
+
+	useEffect(
+		() => {
+			dispatch(updateTotal())
+		},
+		[cartItems]
+	);
+
+	if (isLoading) { 
+		return <h1>Loading...</h1>
+	}
 
 	return (
 		<section className='cart'>
