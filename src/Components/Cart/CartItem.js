@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { ChevronDown, ChevronUp } from '../../icons';
 import { removeItem, changeAmount } from '../../features/cart/cartSlice';
+import { NavLink } from 'react-router-dom';
 
 export function CartItem({ title, price, amount, img, id }) {
 	
@@ -8,7 +9,9 @@ export function CartItem({ title, price, amount, img, id }) {
 
 	return (
 		<article key={id} className={'cart-item'}>
-			<img src={img} />
+			<NavLink to={`/${id}`}>
+				<img src={img} />
+			</NavLink>
 			<div>
 				<h4>{title}</h4>
 				<h4 className='item-price'>${price}</h4>

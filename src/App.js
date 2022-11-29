@@ -1,18 +1,30 @@
-import { useSelector } from 'react-redux';
-import { Cart } from './Components/Cart';
-import Modal from './Components/Modal';
-import { Navigation } from './Components/Navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainPage from './Routes/MainPage';
+import { getCartItems } from './features/cart/reducers';
+import Item from './Components/ItemPreview.js';
+
 
 function App() {
 
-	const { show } = useSelector((store) => store.modal)
+	const { cartItems } = useSelector((store) => store.cart);
+	const dispatch = useDispatch();
+
+	useEffect(() => dispatch(getCartItems()), []);
 
 	return (
-		<>
-			<Navigation />
-			<Cart />
-			{show && <Modal />}
-		</>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<MainPage />} />
+				{cartItems.map((cartItem) => (
+					<Route
+						path={`/${cartItem.id}`}
+						element={<Item cartItem={cartItem} />}
+					/>
+				))}
+			</Routes>
+		</BrowserRouter>
 	);
 }
 export default App;

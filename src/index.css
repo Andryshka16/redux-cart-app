@@ -307,3 +307,49 @@ hr {
   display: flex;
   justify-content: space-around;
 }
+
+.coin-value {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-left {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+}
+
+.nav-left h3 {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.choices {
+  background: hsl(212, 75%, 60%);
+  border-radius: 15px;
+  position: absolute;
+
+}
+
+.choice:hover {
+  opacity: 0.5;
+}
+
+.item-preview {
+  display: flex;
+  margin: 100px auto;
+  width: fit-content;
+  color: #102a42;
+  background: rgba(0, 123, 255, 0.385);
+  border:rgba(0, 0, 0, 0.2) solid;
+  padding: 20px;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.item-preview img {
+  height: 200px;
+  width: 200px;
+}

@@ -3,15 +3,11 @@ import { CartItem } from './Cart/CartItem';
 import { updateTotal } from '../features/cart/cartSlice';
 import { useEffect } from 'react';
 import { changeVisibility } from '../features/modal/modalSlice';
-import { getCartItems } from '../features/cart/reducers';
 
 export function Cart() {
+
 	const { cartItems, total, isLoading } = useSelector((store) => store.cart);
 	const dispatch = useDispatch();
-
-	useEffect(
-		() => dispatch(getCartItems()), []
-	)
 
 	useEffect(
 		() => {
