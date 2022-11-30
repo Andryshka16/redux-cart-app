@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCurrency } from '../features/cart/currencySlice';
+import { changeCurrency } from '../features/currencies/currencySlice';
 
 function Choices({ visible, setVisible, choices }) {
 	const dispatch = useDispatch();

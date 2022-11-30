@@ -6,8 +6,10 @@ import { changeVisibility } from '../features/modal/modalSlice';
 
 export function Cart() {
 
-	const { cartItems, total, isLoading } = useSelector((store) => store.cart);
+	let { cartItems, total, isLoading } = useSelector((store) => store.cart);
+	const { currency, converter } = useSelector((store) => store.currency);
 	const dispatch = useDispatch();
+	total = total * converter["USD" + currency.toUpperCase()] || total
 
 	useEffect(
 		() => {
@@ -36,7 +38,10 @@ export function Cart() {
 				<hr />
 				<div className='cart-total'>
 					<h4>
-						Total <span>{total}$</span>
+						Total{' '}
+						<span>
+							{total.toFixed(2)} {currency}
+						</span>
 					</h4>
 				</div>
 				<button

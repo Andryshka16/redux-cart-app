@@ -1,5 +1,6 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { updateTotal } from './cartSlice';
 
 const url = 'https://course-api.com/react-useReducer-cart-project';
 
@@ -31,7 +32,7 @@ const reducers = {
         let total = 0
         cartItems.forEach(({ price, amount }) =>
             total += amount * Number(price))
-        state.total = total.toFixed(2)
+        state.total = total
     }
 }
 
