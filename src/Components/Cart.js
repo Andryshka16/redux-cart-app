@@ -9,7 +9,7 @@ export function Cart() {
 	let { cartItems, total, isLoading } = useSelector((store) => store.cart);
 	const { currency, converter } = useSelector((store) => store.currency);
 	const dispatch = useDispatch();
-	total = total * converter["USD" + currency.toUpperCase()] || total
+	total = total * (converter[currency.toUpperCase()] || 1)
 
 	useEffect(
 		() => {

@@ -1,9 +1,6 @@
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { updateTotal } from './cartSlice';
 
 const url = 'https://course-api.com/react-useReducer-cart-project';
-
 
 export const getCartItems = createAsyncThunk(
 	'cart/getCartItems',

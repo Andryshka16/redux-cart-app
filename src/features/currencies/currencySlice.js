@@ -12,14 +12,17 @@ const currencySlice = createSlice({
 	initialState,
 	reducers: {
 		changeCurrency: (state, { payload }) => {
-			state.choices.push(state.currency);
-			state.choices = state.choices.filter((e) => e !== payload);
+			state.choices = [...state.choices.filter((e) => e !== payload), state.currency]
 			state.currency = payload;
 		},
 	},
 	extraReducers: {
 		[fetchCurrencies.fulfilled]: (state, { payload }) => {
-			state.converter = payload.quotes;
+			console.log(payload);
+			state.converter = payload.data;
+		},
+		[fetchCurrencies.rejected]: (state, action) => {
+			console.log(action);
 		},
 	},
 });
