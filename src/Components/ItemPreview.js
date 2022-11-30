@@ -1,5 +1,5 @@
 export default function Item({ cartItem }) {
-	const { title, price, amount, img, id } = cartItem;
+	const { title, price, img } = cartItem;
 	return (
 		<div className='item-preview'>
 			<img src={img} alt='not loaded' />

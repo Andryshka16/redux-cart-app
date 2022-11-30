@@ -1,42 +1,5 @@
 import { CartIcon } from '../icons';
-import { useState } from 'react';
-
-
-function Valuechanger() { 
-
-	const values = ["euro", "dollar", "ruble", "pound"]
-	const [state, setState] = useState({ value: values[0], choices: false })
-
-	function showChoices(choices) { 
-		setState((state) => ({ ...state, choices}));
-	}
-	
-
-	return (
-		<div onMouseLeave={()=>showChoices(false)}>
-
-			<h3 onMouseOver={() => showChoices(true)}>{state.value}</h3>
-
-			{state.choices && (
-				<div
-					className='choices'
-					onMouseLeave={() => showChoices(false)}
-				>
-					{values.filter((elm) => elm !== state.value).map((elm) => (
-						<h3
-							className='choice'
-							key={elm}
-							onClick={() => { setState({ value: elm, choices: false }) }}
-						>
-								{elm}
-							</h3>
-						))}
-				</div>
-			)}
-		</div>
-	);
-}
-
+import { Valuechanger } from './Valuechanger';
 
 export function Navigation() {
 	return (
@@ -45,7 +8,7 @@ export function Navigation() {
 				<h3>React toolkit</h3>
 				<div className='nav-left'>
 					<CartIcon />
-					<Valuechanger/>
+					<Valuechanger />
 				</div>
 			</div>
 		</nav>

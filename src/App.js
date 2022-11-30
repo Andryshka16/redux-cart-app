@@ -8,7 +8,7 @@ import Item from './Components/ItemPreview.js';
 
 function App() {
 
-	const { cartItems } = useSelector((store) => store.cart);
+	const { cartItems } = useSelector(store => store.cart);
 	const dispatch = useDispatch();
 
 	useEffect(() => dispatch(getCartItems()), []);
@@ -20,6 +20,7 @@ function App() {
 				{cartItems.map((cartItem) => (
 					<Route
 						path={`/${cartItem.id}`}
+						key={"r"+cartItem.id}
 						element={<Item cartItem={cartItem} />}
 					/>
 				))}
